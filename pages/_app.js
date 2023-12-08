@@ -1,5 +1,6 @@
-import 'styles/sample.css'
+import 'styles/globals.css'
+import Layout from 'components/layout'
 
-export default function App({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
