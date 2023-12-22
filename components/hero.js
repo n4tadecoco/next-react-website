@@ -7,7 +7,15 @@ export default function Hero({ title, subtitle, image0n = false}) {
             <h1>{title}</h1>
             <p>{subtitle}</p>
             </div>
-            {image0n && <figure> [画像] </figure>}
+            {image0n && (
+            <figure className={styles.image}>
+                <image src={cube} alt="" layout="responsive"
+                sizes="(min-width: 1152px) 576px, (min-width: 768px) 50vw, 100vw"
+                priority
+                placeholder="blur"
+                />
+            </figure>
+            )}
         </div>
     )
 }
