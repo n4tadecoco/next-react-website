@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Meta from 'components/meta'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -16,7 +16,26 @@ import TwoColumn from 'components/two-column'
 export default function About() {
   return (
     <Container>
+      <Meta 
+      pageTitle="アバウト"
+      pageDesc="About development activities"
+      pageImg={eyecatch.src}
+      pageImgW={eyecatch.width}
+      pageImgH={eyecatch.height}
+      />
+
     <Hero title="About" subtitle="About development activities"/>
+
+    <figure>
+      <Image
+        src={eyecatch}
+        alt=""
+        layout="responsive"
+        sizes="(min-width: 1152px) 1152px, 100vw"
+        priority
+        placeholder="blur"
+      />
+    </figure>
 
     <TwoColumn>
       <TwoColumnMain>
