@@ -11,7 +11,8 @@ import Hero from 'components/hero'
 import PostBody from 'components/post-body'
 import Contact from 'components/contact'
 import { TwoColumn, TwoColumnmain, TwoColumnSidebar} from 'components/two-column'
-import TwoColumn from 'components/two-column'
+import Image from 'next/image'
+import eyecatch from 'images/about.jpg'
 
 export default function About() {
   return (
