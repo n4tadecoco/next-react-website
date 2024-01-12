@@ -1,13 +1,19 @@
-export default function Schedule() {
-    return <h1>記事のタイトル</h1>
-}
+import { getPostBySlug } from 'lib/api'
+import Container from 'components/container'
+import PostHeader from 'components/post-body'
 
-export async function getStaticProps() {
-    console.log('処理1')
-    setTimeout(() => console.log('処理2'), 1000)
-    console.log('処理3')
-
-    return {
-        props: {},
-    }
+export default function Schedule({
+    title,
+    publish,
+    content,
+    eyecatch,
+    categories,
+}) {
+    return (
+    <Container>
+        <article>
+            <PostHeader title={title} subtitle="Blog Artcle" publish={publish} />
+        </article>
+        </Container>
+        )
 }
