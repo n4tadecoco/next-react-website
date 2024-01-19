@@ -1,18 +1,23 @@
-import styles from 'styles/post-body.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-regular-svg-icons'
+import parse from  'html-react-parser'
+import Image from 'next/image'
 
-export default function PostHeader({ title, subtitle, publish = '' }) {
-    return (
-        <div className={styles.stack}>
-            <p className={styles.subtitle}>{subtitle}</p>
-            <h1 className={styles.title}>{title}</h1>
-            {publish && (
-            <div className={styles.publish}>
-                <FontAwesomeIcon icon={faClock} size="lg" color="var(--gray-25)" />
-                {publish}
-            </div>
-            )}
-        </div>
-    )
+export default function ConvertBody({ contentHTML }) {
+    const contentReact = parse(contentHTML, {
+        replace: (node) => {
+            if (node.name === 'img') {
+                const { src, alt, width, height } = node.attribs
+                return (
+                    <Image
+                    layout="responsive"
+                    src={src}
+                    width={width}
+                    height={height}
+                    alt={alt}
+                    sizes="(min-width: 768px) 768px, 100vw"
+                    />
+                )
+            }
+        },
+    })
+    return <>{contentReact}</>
 }
